@@ -1,0 +1,1573 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Tutorial paso a paso para crear, registrar e integrar nodos personalizados en el motor de flujo de FloWorks.">
+      
+      
+        <meta name="author" content="FloWorks">
+      
+      
+        <link rel="canonical" href="https://floworks.dev/a%C3%B1adir-nuevo-nodo/">
+      
+      
+        <link rel="prev" href="../referencia-nodos/">
+      
+      
+        <link rel="next" href="../instrumentacion/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Guía para Añadir un Nuevo Nodo a FloWorks - FloWorks</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#guia-para-desarrolladores-como-anadir-un-nuevo-nodo-a-floworks" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href=".." title="FloWorks" class="md-header__button md-logo" aria-label="FloWorks" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            FloWorks
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Guía para Añadir un Nuevo Nodo a FloWorks
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-orange"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="deep-orange"  aria-label="Cambiar a modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Compartir" aria-label="Compartir" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/tu-org/floworks" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    FloWorks
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Inicio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../ARCHITECTURE/" class="md-tabs__link">
+          
+  
+  
+  Arquitectura
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../getting-started/" class="md-tabs__link">
+          
+  
+  
+  Guías de Desarrollo
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="FloWorks" class="md-nav__button md-logo" aria-label="FloWorks" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    FloWorks
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/tu-org/floworks" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    FloWorks
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arquitectura
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Arquitectura
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ARCHITECTURE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guía del usuario
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ARCHITECTURE%20II/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arquitectura de FloWorks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guías de Desarrollo
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guías de Desarrollo
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Primeros pasos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../referencia-nodos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Referencia de Nodos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Añadir un Nuevo Nodo
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Añadir un Nuevo Nodo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tabla-de-contenidos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📋 Tabla de Contenidos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduccion-a-la-arquitectura" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Introducción a la Arquitectura
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-usando-la-plantilla-template_nodepy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Usando la Plantilla template_node.py
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-paso-a-paso-creacion-de-un-nodo-personalizado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Paso a Paso: Creación de un Nodo Personalizado
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Paso a Paso: Creación de un Nodo Personalizado">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-copiar-y-renombrar-la-plantilla" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1. Copiar y Renombrar la Plantilla
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-definir-puertos-y-etiquetas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2. Definir Puertos y Etiquetas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-implementar-la-logica-de-procesamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3. Implementar la Lógica de Procesamiento
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-personalizar-la-apariencia-opcional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4. Personalizar la Apariencia (Opcional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-anadir-parametros-configurables-opcional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5. Añadir Parámetros Configurables (Opcional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36-hacer-el-nodo-serializable-guardar-cargar-configuraciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.6. Hacer el nodo serializable (guardar / cargar configuraciones)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-integracion-en-el-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Integración en el Sistema
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-internacionalizacion-i18n" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Internacionalización (i18n)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-temas-visuales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Temas Visuales
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-lista-de-verificacion-y-solucion-de-problemas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Lista de Verificación y Solución de Problemas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Lista de Verificación y Solución de Problemas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lista-de-verificacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✅ Lista de Verificación
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problemas-comunes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🐛 Problemas Comunes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Conclusión
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../instrumentacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instrumentación
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../formato-sflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Formato .sflow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sticky-notes-multi-idioma/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sticky Notes Multi-Idioma
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../i18n-translate-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guía de Traducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tabla-de-contenidos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📋 Tabla de Contenidos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduccion-a-la-arquitectura" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Introducción a la Arquitectura
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-usando-la-plantilla-template_nodepy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Usando la Plantilla template_node.py
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-paso-a-paso-creacion-de-un-nodo-personalizado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Paso a Paso: Creación de un Nodo Personalizado
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Paso a Paso: Creación de un Nodo Personalizado">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-copiar-y-renombrar-la-plantilla" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1. Copiar y Renombrar la Plantilla
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-definir-puertos-y-etiquetas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2. Definir Puertos y Etiquetas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-implementar-la-logica-de-procesamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3. Implementar la Lógica de Procesamiento
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-personalizar-la-apariencia-opcional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4. Personalizar la Apariencia (Opcional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-anadir-parametros-configurables-opcional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5. Añadir Parámetros Configurables (Opcional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36-hacer-el-nodo-serializable-guardar-cargar-configuraciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.6. Hacer el nodo serializable (guardar / cargar configuraciones)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-integracion-en-el-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Integración en el Sistema
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-internacionalizacion-i18n" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Internacionalización (i18n)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-temas-visuales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Temas Visuales
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-lista-de-verificacion-y-solucion-de-problemas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Lista de Verificación y Solución de Problemas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Lista de Verificación y Solución de Problemas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lista-de-verificacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✅ Lista de Verificación
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problemas-comunes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🐛 Problemas Comunes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Conclusión
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="guia-para-desarrolladores-como-anadir-un-nuevo-nodo-a-floworks">📘 Guía para Desarrolladores: Cómo Añadir un Nuevo Nodo a FloWorks</h1>
+<p>Esta guía describe el proceso completo para crear un nuevo tipo de nodo en FloWorks, asegurando que se integre correctamente con el motor de flujo, la interfaz de usuario, los temas visuales y el sistema de internacionalización.</p>
+<hr />
+<h2 id="tabla-de-contenidos">📋 Tabla de Contenidos</h2>
+<ul>
+<li><a href="#-guía-para-desarrolladores-cómo-añadir-un-nuevo-nodo-a-floworks">📘 Guía para Desarrolladores: Cómo Añadir un Nuevo Nodo a FloWorks</a></li>
+<li><a href="#-tabla-de-contenidos">📋 Tabla de Contenidos</a></li>
+<li><a href="#1-introducción-a-la-arquitectura">1. Introducción a la Arquitectura</a></li>
+<li><a href="#2-usando-la-plantilla-template_nodepy">2. Usando la Plantilla <code>template_node.py</code></a></li>
+<li><a href="#3-paso-a-paso-creación-de-un-nodo-personalizado">3. Paso a Paso: Creación de un Nodo Personalizado</a><ul>
+<li><a href="#31-copiar-y-renombrar-la-plantilla">3.1. Copiar y Renombrar la Plantilla</a></li>
+<li><a href="#32-definir-puertos-y-etiquetas">3.2. Definir Puertos y Etiquetas</a></li>
+<li><a href="#33-implementar-la-lógica-de-procesamiento">3.3. Implementar la Lógica de Procesamiento</a></li>
+<li><a href="#34-personalizar-la-apariencia-opcional">3.4. Personalizar la Apariencia (Opcional)</a></li>
+<li><a href="#35-añadir-parámetros-configurables-opcional">3.5. Añadir Parámetros Configurables (Opcional)</a></li>
+<li><a href="#36-hacer-el-nodo-serializable-guardar--cargar-configuraciones">3.6. Hacer el nodo serializable (guardar / cargar configuraciones)</a></li>
+</ul>
+</li>
+<li><a href="#4-integración-en-el-sistema">4. Integración en el Sistema</a></li>
+<li><a href="#5-internacionalización-i18n">5. Internacionalización (i18n)</a></li>
+<li><a href="#6-temas-visuales">6. Temas Visuales</a></li>
+<li><a href="#7-lista-de-verificación-y-solución-de-problemas">7. Lista de Verificación y Solución de Problemas</a><ul>
+<li><a href="#-lista-de-verificación">✅ Lista de Verificación</a></li>
+<li><a href="#-problemas-comunes">🐛 Problemas Comunes</a></li>
+</ul>
+</li>
+<li><a href="#8-conclusión">8. Conclusión</a></li>
+</ul>
+<hr />
+<h2 id="1-introduccion-a-la-arquitectura">1. Introducción a la Arquitectura</h2>
+<p>FloWorks está construido sobre PySide6 y utiliza un modelo de nodos conectables que representan un flujo de procesamiento de señales.</p>
+<hr />
+<h2 id="2-usando-la-plantilla-template_nodepy">2. Usando la Plantilla <code>template_node.py</code></h2>
+<p>Para facilitar la creación de nuevos nodos, se proporciona el archivo <code>nodes/template_node.py</code>. Esta plantilla incluye:
+- Soporte completo para internacionalización (conexión a <code>languageChanged</code>, método <code>update_language</code>).
+- Soporte completo para temas (método <code>update_theme</code>).
+- Ayuda integrada con formato HTML de tres secciones.
+- Gestión de múltiples puertos de entrada/salida configurables.
+- Múltiples salidas con <code>get_output_for_port</code>.
+- Visualización en el plot mediante <code>get_display_signal</code>.
+- Menú contextual traducible.</p>
+<p>Se recomienda partir siempre de esta plantilla al desarrollar un nuevo nodo.</p>
+<hr />
+<h2 id="3-paso-a-paso-creacion-de-un-nodo-personalizado">3. Paso a Paso: Creación de un Nodo Personalizado</h2>
+<h3 id="31-copiar-y-renombrar-la-plantilla">3.1. Copiar y Renombrar la Plantilla</h3>
+<ol>
+<li>Copia <code>nodes/template_node.py</code> con el nombre de tu nuevo nodo, por ejemplo <code>nodes/mi_nodo.py</code>.</li>
+<li>Renombra la clase de <code>TemplateNode</code> a algo descriptivo, ej. <code>MiNodoNode</code>.</li>
+<li>Ajusta los imports si es necesario.</li>
+</ol>
+<h3 id="32-definir-puertos-y-etiquetas">3.2. Definir Puertos y Etiquetas</h3>
+<div class="admonition warning">
+<p class="admonition-title">Importante: Coincidencia de Nombres</p>
+<p>Los nombres de puerto en <code>PORTS</code>, <code>PORT_LABELS</code> y las claves del diccionario devuelto por <code>execute_program</code> deben ser <strong>exactamente iguales</strong> (incluyendo mayúsculas/minúsculas). La plantilla ahora incluye un mapeo de alias (<code>'data_in'</code> → primer puerto izquierdo) para mayor robustez.</p>
+</div>
+<p>Edita el diccionario <code>PORTS</code> en la parte superior del archivo. Cada entrada tiene el formato:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="s2">&quot;nombre_puerto&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;lado&quot;</span><span class="p">,</span> <span class="n">fracción</span><span class="p">)</span>
+</span></code></pre></div>
+- <strong>Lados posibles:</strong> <code>"left"</code>, <code>"right"</code>, <code>"top"</code>, <code>"bottom"</code>.
+- <strong>Fracción:</strong> valor entre <code>0.0</code> y <code>1.0</code> que indica la posición a lo largo del lado.</p>
+<p><strong>Ejemplo para un nodo con una entrada y dos salidas:</strong>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">PORTS</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="s2">&quot;input&quot;</span><span class="p">:</span>     <span class="p">(</span><span class="s2">&quot;left&quot;</span><span class="p">,</span>  <span class="mf">0.5</span><span class="p">),</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="s2">&quot;magnitude&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;right&quot;</span><span class="p">,</span> <span class="mf">0.35</span><span class="p">),</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="s2">&quot;phase&quot;</span><span class="p">:</span>     <span class="p">(</span><span class="s2">&quot;right&quot;</span><span class="p">,</span> <span class="mf">0.65</span><span class="p">),</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="p">}</span>
+</span></code></pre></div>
+El diccionario <code>PORT_LABELS</code> contiene el texto que aparecerá junto a cada puerto. Se recomienda usar claves de traducción en lugar de texto fijo (ver sección Internacionalización).</p>
+<h3 id="33-implementar-la-logica-de-procesamiento">3.3. Implementar la Lógica de Procesamiento</h3>
+<p>El método clave es <code>execute_program(self, input_data)</code>. Este método es invocado por el motor de flujo cuando el nodo recibe datos.</p>
+<p><strong><code>input_data</code> puede ser:</strong>
+- <code>None</code> si no hay entrada.
+- Una tupla <code>(x, y)</code> para señales temporales.
+- Un array 1D.
+- Un diccionario <code>{nombre_puerto: datos}</code> en nodos con múltiples entradas.</p>
+<p><strong>Valor de retorno:</strong>
+- Para nodos con una única salida, devuelve directamente los datos (ej. tupla <code>(x, y)</code>).
+- Para nodos con múltiples salidas, devuelve un diccionario donde las claves coinciden con los nombres de los puertos de salida definidos en <code>PORTS</code>.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">execute_program</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_data</span><span class="p">):</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="c1"># Procesar input_data y generar resultados</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="n">resultado_magnitud</span> <span class="o">=</span> <span class="p">(</span><span class="n">freq</span><span class="p">,</span> <span class="n">mag</span><span class="p">)</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="n">resultado_fase</span> <span class="o">=</span> <span class="p">(</span><span class="n">freq</span><span class="p">,</span> <span class="n">phase</span><span class="p">)</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="k">return</span> <span class="p">{</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>        <span class="s2">&quot;magnitude&quot;</span><span class="p">:</span> <span class="n">resultado_magnitud</span><span class="p">,</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>        <span class="s2">&quot;phase&quot;</span><span class="p">:</span> <span class="n">resultado_fase</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>    <span class="p">}</span>
+</span></code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Nota sobre nombres de puerto genéricos</p>
+<p>El motor de flujo puede pasar ocasionalmente un diccionario con claves como <code>'data_in'</code> en lugar del nombre real del puerto (especialmente si el usuario no hizo clic exacto en el círculo). La plantilla ya incluye código para manejar este caso:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">input_data</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="k">if</span> <span class="s1">&#39;data_in&#39;</span> <span class="ow">in</span> <span class="n">input_data</span><span class="p">:</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>        <span class="n">input_data</span> <span class="o">=</span> <span class="n">input_data</span><span class="p">[</span><span class="s1">&#39;data_in&#39;</span><span class="p">]</span>
+</span></code></pre></div>
+Esto evita que el nodo falle por un error de conexión impreciso.</p>
+</div>
+<p>La plantilla ya incluye un ejemplo comentado. Además, implementa <code>get_output_for_port(self, port_name)</code> para que el motor pueda enrutar cada salida:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">get_output_for_port</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">port_name</span><span class="p">):</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">output_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">port_name</span><span class="p">)</span>
+</span></code></pre></div></p>
+<h3 id="34-personalizar-la-apariencia-opcional">3.4. Personalizar la Apariencia (Opcional)</h3>
+<p>El método <code>paint()</code> dibuja el fondo, título, estado y cualquier texto adicional. Puedes modificar:
+- Los colores (se actualizan automáticamente con <code>update_theme</code>).
+- El texto de estado (usando el atributo <code>self._status</code>).
+- Información de resumen (ej. pico de magnitud).</p>
+<p>La plantilla muestra un ejemplo básico.</p>
+<h3 id="35-anadir-parametros-configurables-opcional">3.5. Añadir Parámetros Configurables (Opcional)</h3>
+<p>Si tu nodo requiere parámetros ajustables por el usuario (ej. tamaño de ventana, frecuencia de corte), puedes:
+1. Agregar atributos en <code>__init__</code> (ej. <code>self.window_size = 512</code>).
+2. Crear un diálogo de configuración (hereda de <code>QDialog</code>).
+3. Conectar el diálogo en <code>open_config_dialog()</code> (método ya presente en la plantilla).
+4. Actualizar los parámetros desde el diálogo y llamar a <code>self.update()</code>.</p>
+<h3 id="36-hacer-el-nodo-serializable-guardar-cargar-configuraciones">3.6. Hacer el nodo serializable (guardar / cargar configuraciones)</h3>
+<p>Para que el nodo pueda guardar y recuperar sus parámetros al copiar/pegar, deshacer/rehacer, o al usar los comandos Guardar/Abrir del menú Archivo, debe heredar del mixin de serialización y declarar sus atributos.</p>
+<ol>
+<li>Importa el mixin en tu archivo:
+    <div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">nodes.serializable</span><span class="w"> </span><span class="kn">import</span> <span class="n">SerializableMixin</span>
+</span></code></pre></div></li>
+<li>Cambia la herencia de la clase para incluirlo antes de <code>QGraphicsObject</code>:
+    <div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">MiNodoNode</span><span class="p">(</span><span class="n">SerializableMixin</span><span class="p">,</span> <span class="n">QGraphicsObject</span><span class="p">):</span>
+</span></code></pre></div></li>
+<li>Define la lista <code>SERIALISABLE</code> a nivel de clase, con los nombres de los atributos que quieres persistir. Solo admite tipos simples (<code>int</code>, <code>float</code>, <code>str</code>, <code>bool</code>), listas, diccionarios, o arrays NumPy (estos últimos se almacenan automáticamente como archivos <code>.npy</code> dentro del <code>.sflow</code>).
+    <div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">MiNodoNode</span><span class="p">(</span><span class="n">SerializableMixin</span><span class="p">,</span> <span class="n">QGraphicsObject</span><span class="p">):</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>    <span class="n">SERIALISABLE</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;frecuencia&#39;</span><span class="p">,</span> <span class="s1">&#39;amplitud&#39;</span><span class="p">,</span> <span class="s1">&#39;configuracion&#39;</span><span class="p">]</span>
+</span></code></pre></div></li>
+<li>Asegúrate de que esos atributos se inicialicen en <code>__init__</code>:
+    <div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="bp">self</span><span class="o">.</span><span class="n">frecuencia</span> <span class="o">=</span> <span class="mf">1000.0</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="bp">self</span><span class="o">.</span><span class="n">amplitud</span> <span class="o">=</span> <span class="mf">1.0</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="bp">self</span><span class="o">.</span><span class="n">configuracion</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;tipo&#39;</span><span class="p">:</span> <span class="s1">&#39;seno&#39;</span><span class="p">,</span> <span class="s1">&#39;fase&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+</span></code></pre></div></li>
+</ol>
+<p>Con esto, no necesitas escribir métodos <code>serialize</code>/<code>deserialize</code>; el mixin se encarga automáticamente de guardar y recuperar los valores.</p>
+<p>Si tu nodo requiere lógica adicional al cargar (por ejemplo, reconectar un instrumento hardware), puedes sobrescribir <code>deserialize</code> llamando primero al método padre:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">deserialize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">deserialize</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>   <span class="c1"># restaura los atributos de SERIALISABLE</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">_iniciar_dispositivo</span><span class="p">()</span>
+</span></code></pre></div></p>
+<hr />
+<h2 id="4-integracion-en-el-sistema">4. Integración en el Sistema</h2>
+<p>Una vez creado el archivo del nodo, solo debes pegarlo en la carpeta <code>nodes</code> para que aparezca en la interfaz y funcione con el resto del sistema.</p>
+<hr />
+<h2 id="5-internacionalizacion-i18n">5. Internacionalización (i18n)</h2>
+<p>Todos los textos visibles deben ser traducibles mediante <code>tr("clave", default="...")</code>. La plantilla ya lo implementa. Debes agregar las claves correspondientes en los archivos JSON dentro de <code>locales/</code>.</p>
+<p><strong>Estructura recomendada:</strong>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="p">{</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">   </span><span class="nt">&quot;nodes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">     </span><span class="nt">&quot;mi_nodo&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">       </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Mi Nodo&quot;</span><span class="p">,</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">       </span><span class="nt">&quot;tooltip&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Descripción emergente&quot;</span><span class="p">,</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">       </span><span class="nt">&quot;ports&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">         </span><span class="nt">&quot;input&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Entrada&quot;</span><span class="p">,</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">         </span><span class="nt">&quot;output1&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Salida 1&quot;</span><span class="p">,</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">         </span><span class="nt">&quot;output2&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Salida 2&quot;</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">      </span><span class="p">},</span>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">       </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">         </span><span class="nt">&quot;no_data&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Sin datos&quot;</span><span class="p">,</span>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="w">         </span><span class="nt">&quot;ready&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Listo&quot;</span>
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="w">      </span><span class="p">},</span>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="w">       </span><span class="nt">&quot;menu&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="w">         </span><span class="nt">&quot;show_output&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Mostrar salida&quot;</span><span class="p">,</span>
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="w">         </span><span class="nt">&quot;configure&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Configurar...&quot;</span>
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a><span class="w">      </span><span class="p">},</span>
+</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a><span class="w">       </span><span class="nt">&quot;help_title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Ayuda - Mi Nodo&quot;</span><span class="p">,</span>
+</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a><span class="w">       </span><span class="nt">&quot;help_html&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;h3&gt;🎛️ Filter Node&lt;/h3&gt;\n&lt;p&gt;Applies a &lt;b&gt;digital filter&lt;/b&gt;...&lt;/p&gt;&quot;</span>
+</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-10-22"><a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a><span class="w">  </span><span class="p">},</span>
+</span><span id="__span-10-23"><a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a><span class="w">   </span><span class="nt">&quot;toolbar&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-24"><a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a><span class="w">     </span><span class="nt">&quot;add_mi_nodo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Mi Nodo&quot;</span>
+</span><span id="__span-10-25"><a id="__codelineno-10-25" name="__codelineno-10-25" href="#__codelineno-10-25"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-10-26"><a id="__codelineno-10-26" name="__codelineno-10-26" href="#__codelineno-10-26"></a><span class="p">}</span>
+</span></code></pre></div></p>
+<p>La ayuda HTML sigue el formato de tres secciones común a todos los nodos (descripción específica + "Cómo pensar en el sistema" + "Atajos y trucos"). La plantilla ya incluye la estructura en <code>get_help_text()</code>.</p>
+<hr />
+<h2 id="6-temas-visuales">6. Temas Visuales</h2>
+<p>El método <code>update_theme(self, theme)</code> recibe un diccionario con los colores definidos por el tema actual. La plantilla actualiza automáticamente:
+- Fondo del nodo (<code>node_normal_bg</code>)
+- Borde (<code>node_selected_border</code>)
+- Color de título y texto (<code>node_normal_text</code>)
+- Colores de puertos (<code>port_circle</code>, <code>port_outline</code>, <code>port_inline</code>, <code>port_text</code>)</p>
+<p>Asegúrate de que en <code>MainWindow</code> (o <code>ThemeUpdater</code>) se llame a <code>node.update_theme()</code> para cada nodo cuando cambie el tema.</p>
+<hr />
+<h2 id="7-lista-de-verificacion-y-solucion-de-problemas">7. Lista de Verificación y Solución de Problemas</h2>
+<h3 id="lista-de-verificacion">✅ Lista de Verificación</h3>
+<ul>
+<li>[ ] El nodo se crea correctamente desde la barra de herramientas.</li>
+<li>[ ] Los puertos se muestran en las posiciones esperadas y son detectables para conexiones (<code>Ctrl+clic</code>).</li>
+<li>[ ] Al recibir datos de entrada, <code>execute_program</code> es llamado y se procesa la señal.</li>
+<li>[ ] Las salidas se propagan correctamente a nodos conectados.</li>
+<li>[ ] El menú contextual permite cambiar el canal de visualización (si hay múltiples salidas).</li>
+<li>[ ] Al hacer clic en el nodo, se grafica la señal seleccionada en el plot widget.</li>
+<li>[ ] El doble clic abre la ayuda con el formato adecuado.</li>
+<li>[ ] El idioma cambia correctamente (textos de título, puertos, menús).</li>
+<li>[ ] El tema cambia correctamente (colores del nodo y puertos).</li>
+<li>[ ] Copiar/pegar funciona sin errores.</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Conexión precisa de puertos</p>
+<p>Al conectar nodos, asegúrate de hacer clic exactamente sobre el círculo del puerto de destino. Si haces clic en el cuerpo del nodo, el sistema usará un nombre genérico (<code>'data_in'</code>). La plantilla ahora tolera estos nombres, pero es una buena práctica conectar directamente al círculo para garantizar el enrutamiento correcto de múltiples salidas.</p>
+</div>
+<h3 id="problemas-comunes">🐛 Problemas Comunes</h3>
+<table>
+<thead>
+<tr>
+<th>Síntoma</th>
+<th>Posible Causa</th>
+<th>Solución</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>La flecha de conexión no se ancla al puerto.</td>
+<td>El círculo del puerto no tiene <code>setData(0, port_name)</code> o <code>get_port_scene_pos</code> no está implementado.</td>
+<td>Verificar que en <code>_create_ports</code> se haga <code>circle.setData(0, port_name)</code> y que <code>get_port_scene_pos</code> use ese nombre.</td>
+</tr>
+<tr>
+<td>Las salidas no llegan a los nodos conectados.</td>
+<td><code>execute_program</code> no devuelve un diccionario (para múltiples salidas) o <code>get_output_for_port</code> no está implementado.</td>
+<td>Asegurar que <code>execute_program</code> devuelva <code>{nombre_puerto: datos}</code> y que <code>get_output_for_port</code> devuelva el valor correspondiente.</td>
+</tr>
+<tr>
+<td>Al hacer clic en el nodo no se grafica nada.</td>
+<td><code>get_display_signal</code> no devuelve una tupla <code>(x, y)</code> válida o <code>display_channel</code> no coincide con una salida existente.</td>
+<td>Revisar que <code>get_display_signal</code> use el canal seleccionado y que los datos sean arrays NumPy.</td>
+</tr>
+<tr>
+<td>Los textos no se actualizan al cambiar idioma.</td>
+<td>No se conectó la señal <code>languageChanged</code> o <code>update_language</code> no actualiza los elementos.</td>
+<td>Verificar la conexión en <code>__init__</code>: <code>language_manager.languageChanged.connect(self.update_language)</code>.</td>
+</tr>
+<tr>
+<td>El tema no se aplica.</td>
+<td>No se llama a <code>update_theme</code> al crear el nodo o al cambiar tema.</td>
+<td>En <code>MainWindow</code>, después de crear el nodo, invocar <code>node.update_theme(self.theme_manager.current_theme())</code>.</td>
+</tr>
+<tr>
+<td>La flecha apunta al centro del nodo.</td>
+<td>Se hizo clic en el cuerpo en lugar del círculo, o el nombre no coincide con <code>PORTS</code>.</td>
+<td>Haz clic directamente sobre el círculo. Verifica que <code>get_port_scene_pos</code> tenga el mapeo de alias.</td>
+</tr>
+<tr>
+<td><code>NameError: name 'self' is not defined</code> al importar.</td>
+<td>Se declararon atributos de instancia fuera de <code>__init__</code>.</td>
+<td>Todos los atributos como <code>self.mi_parametro</code> deben definirse dentro de <code>__init__</code>.</td>
+</tr>
+<tr>
+<td>Parámetros se pierden al copiar/abrir <code>.sflow</code>.</td>
+<td>El nodo no hereda de <code>SerializableMixin</code> o no definió <code>SERIALISABLE</code>.</td>
+<td>Implementar el paso 3.6 de esta guía.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="8-conclusion">8. Conclusión</h2>
+<p>Siguiendo esta guía y utilizando la plantilla <code>template_node.py</code>, podrás añadir nuevos nodos a FloWorks de manera eficiente y coherente con el resto del sistema. Recuerda siempre mantener la compatibilidad con i18n y temas para una experiencia de usuario profesional.</p>
+<p>¡Anímate a contribuir con tus propios nodos!</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      © 2026 FloWorks — Licenciado bajo MIT License.
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/tu-org/floworks" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "navigation.instant", "search.highlight", "search.share", "search.suggest", "content.code.copy", "content.tabs.link", "content.tooltips", "content.code.annotate", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
